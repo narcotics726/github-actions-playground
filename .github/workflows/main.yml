@@ -14,6 +14,7 @@ jobs:
       LRC_CLIENT_SECRET: ${{ secrets.LRC_CLIENT_SECRET }}
   print_run_id:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
     needs: run_test
     steps:
       - run: echo "LRC Run ID is ${{ needs.run_test.outputs.lrc_run_id }}"
